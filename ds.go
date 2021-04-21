@@ -11,27 +11,24 @@ type Container interface {
 	Clear()
 }
 
-// Iterator enables to traverse a Container.
-type Iterator interface {
-	// Next indicates if Container has a next value. Use Value to fetch
-	// it if true.
-	Next() bool
-	// Value retrieves the current value.
-	Value() interface{}
+// IndexRangerFunc is an iteration function for ranging an IndexRanger.
+type IndexRangerFunc func(index int, value interface{}) bool
+
+// IndexRanger enables to traverse a Container with an IndexRangerFunc.
+type IndexRanger interface {
+	// RangeWithIndex iterates a Container with an IndexRangerFunc.
+	// Stop iterating if the IndexRangerFunc returns false.
+	RangeWithIndex(IndexRangerFunc)
 }
 
-// IndexIterator enables to traverse a Container with index.
-type IndexIterator interface {
-	Iterator
-	// Index returns current index.
-	Index() int
-}
+// KeyRangerFunc is an iteration function for ranging a KeyRanger.
+type KeyRangerFunc func(key, value interface{}) bool
 
-// KeyIterator enables to traverse a Container with index.
-type KeyIterator interface {
-	Iterator
-	// Key returns current key.
-	Key() interface{}
+// KeyRanger enables to traverse a Container with a KeyRangerFunc.
+type KeyRanger interface {
+	// RangeWithKey iterates a Container with a KeyRangerFunc.
+	// Stop iterating if the KeyRangerFunc returns false.
+	RangeWithKey(KeyRangerFunc)
 }
 
 // Peeker gives access to the top without modifying the Container.
