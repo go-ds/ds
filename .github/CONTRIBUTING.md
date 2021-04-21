@@ -1,8 +1,8 @@
 # Contributing
 
-When contributing to this repository, please first discuss the change you wish to make by creating an [issue](https://github.com/go-ds/gods/issues) or any other method with the owners of this repository before making a change.
+When contributing to this repository, please first discuss the change you wish to make by creating an [issue](https://github.com/go-ds/ds/issues) or any other method with the owners of this repository before making a change.
 
-Please note: we have a [code of conduct](https://github.com/go-ds/gods/blob/main/.github/CODE_OF_CONDUCT.md), please follow it in all your interactions with the `go-ds` project.
+Please note: we have a [code of conduct](https://github.com/go-ds/ds/blob/main/.github/CODE_OF_CONDUCT.md), please follow it in all your interactions with the `go-ds` project.
 
 ## Pull Requests or Commits
 Titles always we Should use prefix according to below:
@@ -21,6 +21,6 @@ All pull request that contains a feature or fix is mandatory to have unit tests.
 
 If you want to say **thank you** and/or support the active development of `go-ds`:
 
-1. Add a [GitHub Star](https://github.com/go-ds/gods/stargazers) to the project.
+1. Add a [GitHub Star](https://github.com/go-ds/ds/stargazers) to the project.
 2. Write a review or tutorial on [Medium](https://medium.com/), [Dev.to](https://dev.to/) or personal blog.
 3. Support the project by donating a [cup of coffee](https://buymeacoff.ee/kiyon).
