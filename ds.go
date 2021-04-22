@@ -70,11 +70,11 @@ type Slice interface {
 	Pop() (interface{}, bool)
 	// PopFront removes the first element from a Slice and returns it.
 	// Returns (nil, false) if there is no more element.
-	PopFront()(interface{}, bool)
+	PopFront() (interface{}, bool)
 	// Append appends new elements to the end of a Slice.
-	Append(... interface{}) Slice
+	Append(...interface{}) Slice
 	// Prepend inserts new elements at the start of a Slice.
-	Prepend(... interface{}) Slice
+	Prepend(...interface{}) Slice
 	// Concat combines two Slices.
 	Concat(slice Slice) Slice
 	// Reverse reverses the elements in a Slice in place.
@@ -118,4 +118,14 @@ type Slice interface {
 type Slicer interface {
 	// ToSlice returns a Slice with all elements in the Container.
 	ToSlice() Slice
+}
+
+// Comparer is an interface has a Compare method for a ordered Container. It can carry
+// value and is comparable to other Comparer items.
+type Comparer interface {
+	// Compare compares itself to other item and returns:
+	//	negative	self  < other
+	//	zero		self == other
+	//	positive	self  > other
+	Compare(other Comparer) int
 }
