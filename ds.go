@@ -54,18 +54,36 @@ type Peeker interface {
 type Stack interface {
 	Container
 	Peeker
-	// Push adds an element to the Stack.
+	// Push adds an element to the top of Stack.
 	Push(interface{})
-	// Pop removes the most recently added element that was not yet removed.
+	// Pop ejects the most recently added element that was not yet removed
+	// and removes it.
 	Pop() interface{}
 }
 
 // Queue represents a first-in-first-out (FIFO) data structure.
 type Queue interface {
 	Container
+	Peeker
 	// Push appends an element to the end of Queue.
 	Push(interface{})
-	// Pop removes the start element of Queue.
+	// Pop ejects the start element of Queue and removes it.
+	Pop() interface{}
+}
+
+// PriorityQueue is an abstract data structure similar to a regular
+// Queue in which each element additionally has a "priority"
+// associated with it.
+//
+// In a priority queue, an element with high priority is served before
+// an element with low priority.
+type PriorityQueue interface {
+	Container
+	Peeker
+	// Push appends an element to the PriorityQueue.
+	Push(interface{})
+	// Pop ejects the highest "priority" element of PriorityQueue, and
+	// removes it.
 	Pop() interface{}
 }
 
