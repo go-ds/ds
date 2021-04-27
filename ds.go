@@ -87,7 +87,7 @@ type PriorityQueue interface {
 	Pop() interface{}
 }
 
-// Set is an abstract data struct that can store unique values,
+// Set is an abstract data structure that can store unique values,
 // without any particular order.
 type Set interface {
 	Container
@@ -96,6 +96,23 @@ type Set interface {
 	// Has checks whether the element is in the Set.
 	Has(interface{}) bool
 	// Delete removes the element from Set, if it is present.
+	Delete(interface{})
+}
+
+// Map is an abstract data structure composed of a Container of
+// (key, value) pairs, such that each possible key appears at most
+// once in the Container.
+type Map interface {
+	Container
+	// Add adds a new (key,value) pair to the Map, mapping
+	// the new key to its new value.
+	Add(interface{}, interface{}) Map
+	// Get finds the value (if any) that is bound to a given key.
+	Get(interface{}) (interface{}, bool)
+	// Has checks whether the key is in the Map.
+	Has(interface{}) bool
+	// Delete removes a (key,value) pair from the Map, unmapping
+	// a given key from its value.
 	Delete(interface{})
 }
 
