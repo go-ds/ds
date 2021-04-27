@@ -87,6 +87,18 @@ type PriorityQueue interface {
 	Pop() interface{}
 }
 
+// Set is an abstract data struct that can store unique values,
+// without any particular order.
+type Set interface {
+	Container
+	// Add adds the element to Set, if it is not present already.
+	Add(interface{}) Set
+	// Has checks whether the element is in the Set.
+	Has(interface{}) bool
+	// Delete removes the element from Set, if it is present.
+	Delete(interface{})
+}
+
 // Slice is a slice wrapper which provides various handy methods.
 type Slice interface {
 	Container
