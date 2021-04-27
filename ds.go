@@ -116,6 +116,18 @@ type Map interface {
 	Delete(interface{})
 }
 
+// Tree is an abstract data structure that simulates a hierarchical
+// tree structure, with a root value and subtrees of children with
+// a parent node, represented as a set of linked nodes.
+type Tree interface {
+	Container
+	// Size is the numbers of nodes in the Tree, aka degree.
+	Size() int
+	// Height is the length of the longest downward path to a leaf
+	// from the root.
+	Height() int
+}
+
 // Slice is a slice wrapper which provides various handy methods.
 type Slice interface {
 	Container
