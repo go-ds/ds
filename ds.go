@@ -22,13 +22,23 @@ type IndexRanger interface {
 }
 
 // KeyRangerFunc is an iteration function for ranging a KeyRanger.
-type KeyRangerFunc func(key, value interface{}) bool
+type KeyRangerFunc func(key interface{}) bool
 
 // KeyRanger enables to traverse a Container with a KeyRangerFunc.
 type KeyRanger interface {
 	// RangeWithKey iterates a Container with a KeyRangerFunc.
 	// Stop iterating if the KeyRangerFunc returns false.
 	RangeWithKey(KeyRangerFunc)
+}
+
+// KVRangerFunc is an iteration function for ranging a KVRanger.
+type KVRangerFunc func(key, value interface{}) bool
+
+// KVRanger enables to traverse a Container with a KVRangerFunc.
+type KVRanger interface {
+	// RangeKV iterates a Container with a KVRangerFunc.
+	// Stop iterating if the KVRangerFunc returns false.
+	RangeKV(KVRangerFunc)
 }
 
 // Peeker gives access to the top without modifying the Container.
