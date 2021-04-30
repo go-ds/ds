@@ -71,6 +71,27 @@ type Queue interface {
 	Pop() interface{}
 }
 
+// Deque aka double-ends queue is an abstract data structure that
+// generalizes a queue, for which elements can be added to or
+// removed from either the front (head) or back (tail)
+type Deque interface {
+	Container
+	// PushFront appends an element to the front of Deque.
+	PushFront(interface{})
+	// PopFront ejects the start element of Deque and removes it.
+	PopFront() interface{}
+	// PeekFront inspects the start element of Deque without modifying
+	// the Deque. Returns (nil, false) if the Deque is empty.
+	PeekFront() (interface{}, bool)
+	// PushBack appends an element to the back of Deque.
+	PushBack(interface{})
+	// PopBack ejects the end element of Deque and removes it.
+	PopBack() interface{}
+	// PeekBack inspects the end element of Deque without modifying
+	// the Deque. Returns (nil, false) if the Deque is empty.
+	PeekBack() (interface{}, bool)
+}
+
 // PriorityQueue is an abstract data structure similar to a regular
 // Queue in which each element additionally has a "priority"
 // associated with it.
