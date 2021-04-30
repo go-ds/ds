@@ -87,6 +87,26 @@ type PriorityQueue interface {
 	Pop() interface{}
 }
 
+// MonotoneQueue is a variant of the priority queue abstract structure
+// in which the priorities of extracted elements are required to form a
+// monotonic sequence. That is, for a priority queue in which each
+// successively extracted item is the one with the minimum priority (a min-heap),
+// the minimum priority should be monotonically increasing. Conversely for
+// a max-heap the maximum priority should be monotonically decreasing.
+//
+// A necessary and sufficient condition on a MonotoneQueue is that one never
+// attempts to add an element with lower priority than the most recently
+// extracted one.
+type MonotoneQueue interface {
+	Container
+	Peeker
+	// Push appends an element to the end of MonotoneQueue if it makes the
+	// queue still monotony, and removes lower priority elements if necessary.
+	Push(interface{})
+	// Pop ejects the start element of MonotoneQueue and removes it.
+	Pop() interface{}
+}
+
 // Set is an abstract data structure that can store unique values,
 // without any particular order.
 type Set interface {
