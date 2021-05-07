@@ -128,16 +128,15 @@ type MonotoneQueue interface {
 	Pop() interface{}
 }
 
-// Set is an abstract data structure that can store unique values,
-// without any particular order.
+// Set is an abstract data structure that can store unique values.
 type Set interface {
 	Container
-	// Add adds the element to Set, if it is not present already.
-	Add(interface{}) Set
+	// Add adds the elements to Set, if they are not present already.
+	Add(...interface{}) Set
 	// Has checks whether the element is in the Set.
 	Has(interface{}) bool
-	// Delete removes the element from Set, if it is present.
-	Delete(interface{})
+	// Delete removes the elements from Set, if they are present.
+	Delete(...interface{})
 }
 
 // Map is an abstract data structure composed of a Container of
